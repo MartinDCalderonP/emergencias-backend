@@ -28,16 +28,23 @@ model Address {
   contactId   String?  @db.ObjectId
 }
 
+model Document {
+  id        String   @id @default(auto()) @map("_id") @db.ObjectId
+  type      String
+  number    String
+  contact   Contact? @relation(fields: [contactId], references: [id])
+  contactId String?  @db.ObjectId
+}
+
 model Contact {
-  id             String    @id @default(auto()) @map("_id") @db.ObjectId
-  firstName      String
-  lastName       String
-  documentType   String
-  documentNumber String
-  age            Int
-  email          String    @unique
-  phones         Phone[]
-  addresses      Address[]
+  id        String     @id @default(auto()) @map("_id") @db.ObjectId
+  firstName String
+  lastName  String
+  document  Document[]
+  age       Int
+  email     String     @unique
+  phones    Phone[]
+  addresses Address[]
 
   @@map("Contacts")
 }

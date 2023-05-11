@@ -22,14 +22,44 @@ export class ContactsController {
     return this.contactsService.create(createContactDto);
   }
 
-  @Get()
-  findAll() {
-    return this.contactsService.findAll();
-  }
-
   @Get(':id')
   findOne(@Param('id') id: string) {
-    return this.contactsService.findOne(id);
+    return this.contactsService.findOneById(id);
+  }
+
+  @Get()
+  findOneByEmail(@Body() email: string) {
+    return this.contactsService.findOneByEmail(email);
+  }
+
+  @Get(':firstName')
+  findAllByFirstName(@Param('firstName') firstName: string) {
+    return this.contactsService.findAllByFirstName(firstName);
+  }
+
+  @Get(':lastName')
+  findAllByLastName(@Param('lastName') lastName: string) {
+    return this.contactsService.findAllByLastName(lastName);
+  }
+
+  @Get(':documentNumber')
+  findOneByDocumentNumber(@Param('documentNumber') documentNumber: string) {
+    return this.contactsService.findOneByDocumentNumber(documentNumber);
+  }
+
+  @Get(':age')
+  findAllByAge(@Param('age') age: number) {
+    return this.contactsService.findAllByAge(age);
+  }
+
+  @Get(':phone')
+  findOneByPhone(@Param('phone') phone: string) {
+    return this.contactsService.findOneByPhone(phone);
+  }
+
+  @Get(':address')
+  findAllByAddress(@Param('address') address: string) {
+    return this.contactsService.findAllByAddress(address);
   }
 
   @Patch(':id')

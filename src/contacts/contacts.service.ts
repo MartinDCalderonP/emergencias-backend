@@ -38,12 +38,72 @@ export class ContactsService {
     });
   }
 
-  findAll() {
-    return `This action returns all contacts`;
+  findOneById(id: string) {
+    return this.prisma.contact.findUnique({
+      where: { id },
+    });
   }
 
-  findOne(id: string) {
-    return `This action returns a #${id} contact`;
+  findOneByEmail(email: string) {
+    return this.prisma.contact.findUnique({
+      where: { email },
+    });
+  }
+
+  findAllByFirstName(firstName: string) {
+    return this.prisma.contact.findMany({
+      where: { firstName },
+    });
+  }
+
+  findAllByLastName(lastName: string) {
+    return this.prisma.contact.findMany({
+      where: { lastName },
+    });
+  }
+
+  async findOneByDocumentNumber(documentNumber: string) {
+    const document = await this.prisma.document.findUnique({
+      where: { number: documentNumber },
+    });
+
+    return this.prisma.contact.findUnique({
+      where: { documentId: document.contactId },
+    });
+  }
+
+  findAllByAge(age: number) {
+    return this.prisma.contact.findMany({
+      where: { age },
+    });
+  }
+
+  async findOneByPhone(phoneNumber: string) {
+    const phone = await this.prisma.phone.findUnique({
+      where: { number: phoneNumber },
+    });
+
+    return this.prisma.contact.findUnique({
+      where: { id: phone.contactId },
+    });
+  }
+
+  async findAllByAddress(address: string) {
+    const addresses = await this.prisma.address.findMany({
+      where: { street: address },
+    });
+
+    return await this.prisma.contact.findMany({
+      where: {
+        addresses: {
+          some: {
+            id: {
+              in: addresses.map((address) => address.id),
+            },
+          },
+        },
+      },
+    });
   }
 
   update(id: string, updateContactDto: UpdateContactDto) {

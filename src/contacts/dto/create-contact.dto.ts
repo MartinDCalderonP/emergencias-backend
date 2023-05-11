@@ -69,4 +69,7 @@ export class CreateContactDto {
 
   @ApiProperty({ type: () => AddressDTO })
   addresses: AddressDTO[];
+
+  @ApiProperty()
+  documentId: string;
 }

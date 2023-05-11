@@ -13,7 +13,7 @@ datasource db {
 model Phone {
   id        String   @id @default(auto()) @map("_id") @db.ObjectId
   type      String
-  number    String
+  number    String   @unique
   contact   Contact? @relation(fields: [contactId], references: [id])
   contactId String?  @db.ObjectId
 }

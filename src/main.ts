@@ -9,7 +9,6 @@ async function bootstrap() {
     .setTitle('Contacts API')
     .setDescription('Contacts API for the Emergencias challenge')
     .setVersion('1.0')
-    .addTag('contacts')
     .build();
 
   const document = SwaggerModule.createDocument(app, config);

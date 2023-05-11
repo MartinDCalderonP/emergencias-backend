@@ -9,3 +9,35 @@ datasource db {
   provider = "mongodb"
   url      = env("DATABASE_URL")
 }
+
+model Phone {
+  id        String   @id @default(auto()) @map("_id") @db.ObjectId
+  type      String
+  number    String
+  contact   Contact? @relation(fields: [contactId], references: [id])
+  contactId String?  @db.ObjectId
+}
+
+model Address {
+  id          String   @id @default(auto()) @map("_id") @db.ObjectId
+  street      String
+  number      String
+  city        String
+  description String?
+  contact     Contact? @relation(fields: [contactId], references: [id])
+  contactId   String?  @db.ObjectId
+}
+
+model Contact {
+  id             String    @id @default(auto()) @map("_id") @db.ObjectId
+  firstName      String
+  lastName       String
+  documentType   String
+  documentNumber String
+  age            Int
+  email          String
+  phones         Phone[]
+  address        Address[]
+
+  @@map("Contacts")
+}

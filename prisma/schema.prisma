@@ -37,7 +37,7 @@ model Contact {
   age            Int
   email          String    @unique
   phones         Phone[]
-  address        Address[]
+  addresses      Address[]
 
   @@map("Contacts")
 }

@@ -1,12 +1,54 @@
-import { Address, Document, Phone } from '@prisma/client';
+import { ApiProperty } from '@nestjs/swagger';
+
+class DocumentDTO {
+  @ApiProperty()
+  type: string;
+
+  @ApiProperty()
+  number: string;
+}
+
+class PhoneDTO {
+  @ApiProperty()
+  type: string;
+
+  @ApiProperty()
+  number: string;
+}
+
+class AddressDTO {
+  @ApiProperty()
+  street: string;
+
+  @ApiProperty()
+  number: string;
+
+  @ApiProperty()
+  city: string;
+
+  @ApiProperty({ required: false })
+  description: string;
+}
 
 export class CreateContactDto {
-  id: string;
+  @ApiProperty()
   firstName: string;
+
+  @ApiProperty()
   lastName: string;
-  document: Document;
+
+  @ApiProperty({ type: () => DocumentDTO })
+  document: DocumentDTO;
+
+  @ApiProperty()
   age: number;
+
+  @ApiProperty()
   email: string;
-  phones: Phone[];
-  addresses: Address[];
+
+  @ApiProperty({ type: () => PhoneDTO })
+  phones: PhoneDTO[];
+
+  @ApiProperty({ type: () => AddressDTO })
+  addresses: AddressDTO[];
 }

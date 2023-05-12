@@ -32,47 +32,47 @@ export class ContactsController {
     return this.contactsService.findAll();
   }
 
-  @Get(':id')
-  findOne(@Param('id') id: string) {
+  @Get('/id=:id')
+  findOneById(@Param('id') id: string) {
     return this.contactsService.findOneById(id);
   }
 
-  @Get(':email')
-  findOneByEmail(@Body() email: string) {
-    return this.contactsService.findOneByEmail(email);
+  @Get('/email=:email')
+  findAllByEmail(@Param(':email') email: string) {
+    return this.contactsService.findAllByEmail(email);
   }
 
-  @Get(':firstName')
+  @Get('/firstName=:firstName')
   findAllByFirstName(@Param('firstName') firstName: string) {
     return this.contactsService.findAllByFirstName(firstName);
   }
 
-  @Get(':lastName')
+  @Get('/lastName=:lastName')
   findAllByLastName(@Param('lastName') lastName: string) {
     return this.contactsService.findAllByLastName(lastName);
   }
 
-  @Get(':documentNumber')
+  @Get('/documentNumber=:documentNumber')
   findOneByDocumentNumber(@Param('documentNumber') documentNumber: string) {
     return this.contactsService.findOneByDocumentNumber(documentNumber);
   }
 
-  @Get(':age')
+  @Get('/age=:age')
   findAllByAge(@Param('age') age: number) {
     return this.contactsService.findAllByAge(age);
   }
 
-  @Get(':phone')
+  @Get('/phone=:phone')
   findOneByPhone(@Param('phone') phone: string) {
     return this.contactsService.findOneByPhone(phone);
   }
 
-  @Get(':address')
+  @Get('/address=:address')
   findAllByAddress(@Param('address') address: string) {
     return this.contactsService.findAllByAddress(address);
   }
 
-  @Patch(':id')
+  @Patch('/id=:id')
   updateContact(
     @Param('id') id: string,
     @Body() updateContactDto: UpdateContactDto,
@@ -80,7 +80,7 @@ export class ContactsController {
     return this.contactsService.updateContact(id, updateContactDto);
   }
 
-  @Patch(':documentId')
+  @Patch('/documentId=:documentId')
   updateDocument(
     @Param('documentId') id: string,
     @Body() updateDocumentDto: UpdateDocumentDto,
@@ -88,7 +88,7 @@ export class ContactsController {
     return this.contactsService.updateDocument(id, updateDocumentDto);
   }
 
-  @Patch(':phoneId')
+  @Patch('/phoneId=:phoneId')
   updatePhone(
     @Param('phoneId') id: string,
     @Body() updatePhoneDto: UpdatePhoneDto,
@@ -96,7 +96,7 @@ export class ContactsController {
     return this.contactsService.updatePhone(id, updatePhoneDto);
   }
 
-  @Patch(':addressId')
+  @Patch('/addressId=:addressId')
   updateAddress(
     @Param('addressId') id: string,
     @Body() updateAddressDto: UpdateAddressDto,
@@ -104,7 +104,7 @@ export class ContactsController {
     return this.contactsService.updateAddress(id, updateAddressDto);
   }
 
-  @Delete(':id')
+  @Delete('/id=:id')
   remove(@Param('id') id: string) {
     return this.contactsService.removeById(id);
   }

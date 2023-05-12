@@ -76,4 +76,9 @@ export class ContactsController {
   remove(@Param('id') id: string) {
     return this.contactsService.removeById(id);
   }
+
+  @Delete()
+  removeAll() {
+    return this.contactsService.removeAll();
+  }
 }

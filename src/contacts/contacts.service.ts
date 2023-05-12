@@ -144,4 +144,8 @@ export class ContactsService {
       where: { id },
     });
   }
+
+  removeAll() {
+    return this.prisma.contact.deleteMany();
+  }
 }

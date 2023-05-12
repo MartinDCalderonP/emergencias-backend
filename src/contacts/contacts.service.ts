@@ -103,13 +103,23 @@ export class ContactsService {
     });
 
     return this.prisma.contact.findUnique({
-      where: { documentId: document.contactId },
+      where: { id: document.contactId },
+      include: {
+        document: true,
+        phones: true,
+        addresses: true,
+      },
     });
   }
 
   findAllByAge(age: number) {
     return this.prisma.contact.findMany({
       where: { age },
+      include: {
+        document: true,
+        phones: true,
+        addresses: true,
+      },
     });
   }
 
@@ -120,6 +130,11 @@ export class ContactsService {
 
     return this.prisma.contact.findUnique({
       where: { id: phone.contactId },
+      include: {
+        document: true,
+        phones: true,
+        addresses: true,
+      },
     });
   }
 
@@ -137,6 +152,11 @@ export class ContactsService {
             },
           },
         },
+      },
+      include: {
+        document: true,
+        phones: true,
+        addresses: true,
       },
     });
   }

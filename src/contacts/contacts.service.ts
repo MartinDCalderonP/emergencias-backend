@@ -18,10 +18,10 @@ export class ContactsService {
         firstName: createContactDto.firstName,
         lastName: createContactDto.lastName,
         document: {
-          create: {
-            type: createContactDto.document.type,
-            number: createContactDto.document.number,
-          },
+          create: createContactDto.document.map((document) => ({
+            type: document.type,
+            number: document.number,
+          })),
         },
         age: createContactDto.age,
         email: createContactDto.email,
@@ -147,12 +147,6 @@ export class ContactsService {
       data: {
         firstName: updateContactDto.firstName,
         lastName: updateContactDto.lastName,
-        document: {
-          update: {
-            type: updateContactDto.document.type,
-            number: updateContactDto.document.number,
-          },
-        },
         age: updateContactDto.age,
         email: updateContactDto.email,
       },

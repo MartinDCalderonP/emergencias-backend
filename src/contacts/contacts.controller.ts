@@ -27,7 +27,7 @@ export class ContactsController {
     return this.contactsService.findOneById(id);
   }
 
-  @Get()
+  @Get(':email')
   findOneByEmail(@Body() email: string) {
     return this.contactsService.findOneByEmail(email);
   }

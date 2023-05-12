@@ -51,6 +51,11 @@ export class ContactsService {
   findOneById(id: string) {
     return this.prisma.contact.findUnique({
       where: { id },
+      include: {
+        document: true,
+        phones: true,
+        addresses: true,
+      },
     });
   }
 
@@ -130,26 +135,6 @@ export class ContactsService {
         },
         age: updateContactDto.age,
         email: updateContactDto.email,
-        phones: {
-          update: updateContactDto.phones.map((phone) => ({
-            where: { id: phone.id },
-            data: {
-              type: phone.type,
-              number: phone.number,
-            },
-          })),
-        },
-        addresses: {
-          update: updateContactDto.addresses.map((address) => ({
-            where: { id: address.id },
-            data: {
-              street: address.street,
-              number: address.number,
-              city: address.city,
-              description: address.description,
-            },
-          })),
-        },
       },
     });
   }

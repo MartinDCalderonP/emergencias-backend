@@ -38,6 +38,16 @@ export class ContactsService {
     });
   }
 
+  findAll() {
+    return this.prisma.contact.findMany({
+      include: {
+        document: true,
+        phones: true,
+        addresses: true,
+      },
+    });
+  }
+
   findOneById(id: string) {
     return this.prisma.contact.findUnique({
       where: { id },

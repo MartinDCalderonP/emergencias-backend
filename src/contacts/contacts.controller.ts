@@ -22,6 +22,11 @@ export class ContactsController {
     return this.contactsService.create(createContactDto);
   }
 
+  @Get()
+  findAll() {
+    return this.contactsService.findAll();
+  }
+
   @Get(':id')
   findOne(@Param('id') id: string) {
     return this.contactsService.findOneById(id);

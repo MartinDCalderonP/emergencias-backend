@@ -64,10 +64,10 @@ export class CreateContactDto {
   @ApiProperty()
   email: string;
 
-  @ApiProperty({ type: () => PhoneDTO })
+  @ApiProperty({ type: () => PhoneDTO, isArray: true })
   phones: PhoneDTO[];
 
-  @ApiProperty({ type: () => AddressDTO })
+  @ApiProperty({ type: () => AddressDTO, isArray: true })
   addresses: AddressDTO[];
 
   @ApiProperty()

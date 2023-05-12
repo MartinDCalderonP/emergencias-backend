@@ -64,9 +64,14 @@ export class ContactsService {
     });
   }
 
-  findOneByEmail(email: string) {
-    return this.prisma.contact.findUnique({
+  findAllByEmail(email: string) {
+    return this.prisma.contact.findMany({
       where: { email },
+      include: {
+        document: true,
+        phones: true,
+        addresses: true,
+      },
     });
   }
 

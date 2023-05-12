@@ -23,9 +23,6 @@ class PhoneDTO {
 
   @ApiProperty()
   number: string;
-
-  @ApiProperty()
-  contactId: string;
 }
 
 class AddressDTO {

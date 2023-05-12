@@ -1,6 +1,6 @@
 import { ApiProperty } from '@nestjs/swagger';
 
-class DocumentDTO {
+export class CreateDocumentDto {
   @ApiProperty()
   id: string;
 
@@ -14,7 +14,7 @@ class DocumentDTO {
   contactId: string;
 }
 
-class PhoneDTO {
+export class CreatePhoneDto {
   @ApiProperty()
   id: string;
 
@@ -23,9 +23,12 @@ class PhoneDTO {
 
   @ApiProperty()
   number: string;
+
+  @ApiProperty()
+  contactId: string;
 }
 
-class AddressDTO {
+export class CreateAddressDto {
   @ApiProperty()
   id: string;
 
@@ -52,8 +55,8 @@ export class CreateContactDto {
   @ApiProperty()
   lastName: string;
 
-  @ApiProperty({ type: () => DocumentDTO })
-  document: DocumentDTO;
+  @ApiProperty({ type: () => CreateDocumentDto })
+  document: CreateDocumentDto;
 
   @ApiProperty()
   age: number;
@@ -61,11 +64,11 @@ export class CreateContactDto {
   @ApiProperty()
   email: string;
 
-  @ApiProperty({ type: () => PhoneDTO, isArray: true })
-  phones: PhoneDTO[];
+  @ApiProperty({ type: () => CreatePhoneDto, isArray: true })
+  phones: CreatePhoneDto[];
 
-  @ApiProperty({ type: () => AddressDTO, isArray: true })
-  addresses: AddressDTO[];
+  @ApiProperty({ type: () => CreateAddressDto, isArray: true })
+  addresses: CreateAddressDto[];
 
   @ApiProperty()
   documentId: string;

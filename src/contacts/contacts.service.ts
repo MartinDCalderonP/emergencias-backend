@@ -1,12 +1,7 @@
 import { PrismaService } from 'src/prisma/prisma.service';
 import { Injectable } from '@nestjs/common';
 import { CreateContactDto } from './dto/create-contact.dto';
-import {
-  UpdateContactDto,
-  UpdateDocumentDto,
-  UpdatePhoneDto,
-  UpdateAddressDto,
-} from './dto/update-contact.dto';
+import { UpdateContactDto } from './dto/update-contact.dto';
 
 @Injectable()
 export class ContactsService {
@@ -169,41 +164,6 @@ export class ContactsService {
         lastName: updateContactDto.lastName,
         age: updateContactDto.age,
         email: updateContactDto.email,
-      },
-    });
-  }
-
-  updateDocument(id: string, updateDocumentDto: UpdateDocumentDto) {
-    return this.prisma.document.update({
-      where: { id },
-      data: {
-        type: updateDocumentDto.type,
-        number: updateDocumentDto.number,
-        contactId: updateDocumentDto.contactId,
-      },
-    });
-  }
-
-  updatePhone(id: string, updatePhoneDto: UpdatePhoneDto) {
-    return this.prisma.phone.update({
-      where: { id },
-      data: {
-        type: updatePhoneDto.type,
-        number: updatePhoneDto.number,
-        contactId: updatePhoneDto.contactId,
-      },
-    });
-  }
-
-  updateAddress(id: string, updateAddressDto: UpdateAddressDto) {
-    return this.prisma.address.update({
-      where: { id },
-      data: {
-        street: updateAddressDto.street,
-        number: updateAddressDto.number,
-        city: updateAddressDto.city,
-        description: updateAddressDto.description,
-        contactId: updateAddressDto.contactId,
       },
     });
   }

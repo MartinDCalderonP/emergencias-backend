@@ -1,65 +1,8 @@
 import { ApiProperty } from '@nestjs/swagger';
-import { IsNotEmpty, IsNumber, IsString, MaxLength } from 'class-validator';
-
-export class CreateDocumentDto {
-  id: string;
-
-  @IsString()
-  @IsNotEmpty()
-  @ApiProperty()
-  type: string;
-
-  @IsNumber()
-  @IsNotEmpty()
-  @MaxLength(9)
-  @ApiProperty()
-  number: string;
-
-  contactId: string;
-}
-
-export class CreatePhoneDto {
-  id: string;
-
-  @IsString()
-  @IsNotEmpty()
-  @ApiProperty()
-  type: string;
-
-  @IsNumber()
-  @IsNotEmpty()
-  @MaxLength(10)
-  @ApiProperty()
-  number: string;
-
-  contactId: string;
-}
-
-export class CreateAddressDto {
-  id: string;
-
-  @IsString()
-  @IsNotEmpty()
-  @ApiProperty()
-  street: string;
-
-  @IsNumber()
-  @IsNotEmpty()
-  @MaxLength(5)
-  @ApiProperty()
-  number: string;
-
-  @IsString()
-  @IsNotEmpty()
-  @ApiProperty()
-  city: string;
-
-  @IsString()
-  @ApiProperty({ required: false })
-  description: string;
-
-  contactId: string;
-}
+import { IsNotEmpty, IsNumber, IsString } from 'class-validator';
+import { CreateDocumentDto } from 'src/documents/dto/create-document.dto';
+import { CreatePhoneDto } from 'src/phones/dto/create-phone.dto';
+import { CreateAddressDto } from 'src/addresses/dto/create-address.dto';
 
 export class CreateContactDto {
   id: string;

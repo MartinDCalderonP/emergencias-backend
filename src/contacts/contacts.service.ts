@@ -78,12 +78,22 @@ export class ContactsService {
   findAllByFirstName(firstName: string) {
     return this.prisma.contact.findMany({
       where: { firstName },
+      include: {
+        document: true,
+        phones: true,
+        addresses: true,
+      },
     });
   }
 
   findAllByLastName(lastName: string) {
     return this.prisma.contact.findMany({
       where: { lastName },
+      include: {
+        document: true,
+        phones: true,
+        addresses: true,
+      },
     });
   }
 

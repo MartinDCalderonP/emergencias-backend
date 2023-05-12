@@ -9,7 +9,12 @@ import {
 } from '@nestjs/common';
 import { ContactsService } from './contacts.service';
 import { CreateContactDto } from './dto/create-contact.dto';
-import { UpdateContactDto } from './dto/update-contact.dto';
+import {
+  UpdateDocumentDto,
+  UpdatePhoneDto,
+  UpdateAddressDto,
+  UpdateContactDto,
+} from './dto/update-contact.dto';
 import { ApiTags } from '@nestjs/swagger';
 
 @Controller('contacts')
@@ -68,8 +73,35 @@ export class ContactsController {
   }
 
   @Patch(':id')
-  update(@Param('id') id: string, @Body() updateContactDto: UpdateContactDto) {
-    return this.contactsService.update(id, updateContactDto);
+  updateContact(
+    @Param('id') id: string,
+    @Body() updateContactDto: UpdateContactDto,
+  ) {
+    return this.contactsService.updateContact(id, updateContactDto);
+  }
+
+  @Patch(':documentId')
+  updateDocument(
+    @Param('documentId') id: string,
+    @Body() updateDocumentDto: UpdateDocumentDto,
+  ) {
+    return this.contactsService.updateDocument(id, updateDocumentDto);
+  }
+
+  @Patch(':phoneId')
+  updatePhone(
+    @Param('phoneId') id: string,
+    @Body() updatePhoneDto: UpdatePhoneDto,
+  ) {
+    return this.contactsService.updatePhone(id, updatePhoneDto);
+  }
+
+  @Patch(':addressId')
+  updateAddress(
+    @Param('addressId') id: string,
+    @Body() updateAddressDto: UpdateAddressDto,
+  ) {
+    return this.contactsService.updateAddress(id, updateAddressDto);
   }
 
   @Delete(':id')

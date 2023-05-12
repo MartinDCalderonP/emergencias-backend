@@ -154,7 +154,9 @@ export class ContactsService {
     });
   }
 
-  remove(id: string) {
-    return `This action removes a #${id} contact`;
+  removeById(id: string) {
+    return this.prisma.contact.delete({
+      where: { id },
+    });
   }
 }

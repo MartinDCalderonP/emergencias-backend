@@ -5,27 +5,21 @@ settings:
   excludeLinksFromLockfile: false
 
 overrides:
-  '@nestjs/common@<10.4.16': '>=10.4.16'
   '@nestjs/core@<=11.1.17': '>=11.1.18'
   ajv@>=7.0.0-alpha.0 <8.18.0: '>=8.18.0'
-  body-parser@<1.20.3: '>=1.20.3'
-  cookie@<0.7.0: '>=0.7.0'
-  express@<4.19.2: '>=4.19.2'
-  express@<4.20.0: '>=4.20.0'
   file-type@>=13.0.0 <21.3.1: '>=21.3.1'
   file-type@>=20.0.0 <=21.3.1: '>=21.3.2'
   js-yaml@>=4.0.0 <4.1.1: '>=4.1.1'
   lodash@<=4.17.23: '>=4.18.0'
   lodash@>=4.0.0 <=4.17.22: '>=4.17.23'
   lodash@>=4.0.0 <=4.17.23: '>=4.18.0'
-  multer@>=2.0.1 <2.3.0: 2.1.1
-  path-to-regexp@<0.1.10: '>=0.1.10'
-  path-to-regexp@<0.1.12: '>=0.1.12'
+  multer@<2.1.0: '>=2.1.0'
+  multer@<2.1.1: '>=2.1.1'
   path-to-regexp@>=2.0.0 <3.3.0: '>=3.3.0'
-  send@<0.19.0: '>=0.19.0'
-  serve-static@<1.16.0: '>=1.16.0'
   tmp@<=0.2.3: '>=0.2.4'
   webpack@>=5.0.0-alpha.0 <5.94.0: '>=5.94.0'
+  webpack@>=5.49.0 <5.104.0: '>=5.104.0'
+  webpack@>=5.49.0 <=5.104.0: '>=5.104.1'
 
 importers:
 
@@ -35,7 +29,7 @@ importers:
         specifier: ^10.4.20
         version: 10.4.22(class-validator@0.14.4)(reflect-metadata@0.1.14)(rxjs@7.8.2)
       '@nestjs/core':
-        specifier: '>=11.1.18'
+        specifier: ^11.1.19
         version: 11.1.19(@nestjs/common@10.4.22(class-validator@0.14.4)(reflect-metadata@0.1.14)(rxjs@7.8.2))(@nestjs/platform-express@10.4.22)(reflect-metadata@0.1.14)(rxjs@7.8.2)
       '@nestjs/platform-express':
         specifier: ^10.4.20
@@ -492,7 +486,7 @@ packages:
   '@nestjs/mapped-types@1.2.2':
     resolution: {integrity: sha512-3dHxLXs3M0GPiriAcCFFJQHoDFUuzTD5w6JDhE7TyfT89YKpe6tcCCIqOZWdXmt9AZjjK30RkHRSFF+QEnWFQg==}
     peerDependencies:
-      '@nestjs/common': '>=10.4.16'
+      '@nestjs/common': ^7.0.8 || ^8.0.0 || ^9.0.0
       class-transformer: ^0.2.0 || ^0.3.0 || ^0.4.0 || ^0.5.0
       class-validator: ^0.11.1 || ^0.12.0 || ^0.13.0 || ^0.14.0
       reflect-metadata: ^0.1.12
@@ -505,7 +499,7 @@ packages:
   '@nestjs/platform-express@10.4.22':
     resolution: {integrity: sha512-ySSq7Py/DFozzZdNDH67m/vHoeVdphDniWBnl6q5QVoXldDdrZIHLXLRMPayTDh5A95nt7jjJzmD4qpTbNQ6tA==}
     peerDependencies:
-      '@nestjs/common': '>=10.4.16'
+      '@nestjs/common': ^10.0.0
       '@nestjs/core': '>=11.1.18'
 
   '@nestjs/schematics@9.2.0':
@@ -517,7 +511,7 @@ packages:
     resolution: {integrity: sha512-Gnig189oa1tD+h0BYIfUwhp/wvvmTn6iO3csR2E4rQrDTgCxSxZDlNdfZo3AC+Rmf8u0KX4ZAX1RZN1qXTtC7A==}
     peerDependencies:
       '@fastify/static': ^6.0.0
-      '@nestjs/common': '>=10.4.16'
+      '@nestjs/common': ^9.0.0
       '@nestjs/core': '>=11.1.18'
       class-transformer: '*'
       class-validator: '*'
@@ -533,7 +527,7 @@ packages:
   '@nestjs/testing@9.4.3':
     resolution: {integrity: sha512-LDT8Ai2eKnTzvnPaJwWOK03qTaFap5uHHsJCv6dL0uKWk6hyF9jms8DjyVaGsaujCaXDG8izl1mDEER0OmxaZA==}
     peerDependencies:
-      '@nestjs/common': '>=10.4.16'
+      '@nestjs/common': ^9.0.0
       '@nestjs/core': '>=11.1.18'
       '@nestjs/microservices': ^9.0.0
       '@nestjs/platform-express': ^9.0.0
@@ -1469,7 +1463,7 @@ packages:
     engines: {node: '>=12.13.0', yarn: '>=1.0.0'}
     peerDependencies:
       typescript: '>3.6.0'
-      webpack: '>=5.94.0'
+      webpack: '>=5.104.1'
 
   form-data@4.0.5:
     resolution: {integrity: sha512-8RipRLol37bNs2bhoV67fiTEvdTrbMUYcFTiy3+wuuOnUog2QBHCZWXDRijWQfAkhBj2Uf5UnVaiWwA5vdd82w==}
@@ -2508,7 +2502,7 @@ packages:
     resolution: {integrity: sha512-CDje4PndhTD2HkgyKH3pab+LKspDeB/NhPN2OF1j+piYIamQqBYwAXWESOT1Yju2xFg51bRW9sUng2WxDjzArw==}
     engines: {node: '>= v0.10.32'}
     peerDependencies:
-      express: '>=4.20.0'
+      express: '>=4.0.0 || >=5.0.0-beta'
 
   symbol-observable@4.0.0:
     resolution: {integrity: sha512-b19dMThMV4HVFynSAM1++gBHAbk2Tc/osgLIBZMKsyqh34jb2e8Os7T6ZW/Bt3pJFdBTd2JwAnAAEQV7rSNvcQ==}
@@ -2525,7 +2519,7 @@ packages:
       '@swc/core': '*'
       esbuild: '*'
       uglify-js: '*'
-      webpack: '>=5.94.0'
+      webpack: '>=5.104.1'
     peerDependenciesMeta:
       '@swc/core':
         optional: true
@@ -2598,7 +2592,7 @@ packages:
     engines: {node: '>=12.0.0'}
     peerDependencies:
       typescript: '*'
-      webpack: '>=5.94.0'
+      webpack: '>=5.104.1'
 
   ts-node@10.9.2:
     resolution: {integrity: sha512-f0FFpIdcHgn8zcPSbf1dRevwt047YMnaiJM3u2w2RewrB+fob/zePZcrOyQoLMMO7aBIddLcQIEK5dYjkLnGrQ==}

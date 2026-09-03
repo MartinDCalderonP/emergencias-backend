@@ -71,5 +71,5 @@
     "coverageDirectory": "../coverage",
     "testEnvironment": "node"
   },
-  "packageManager": "pnpm@11.5.1"
+  "packageManager": "pnpm@11.25.0"
 }
